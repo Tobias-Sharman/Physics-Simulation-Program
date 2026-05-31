@@ -1,5 +1,14 @@
 # Physics Simulation Program
 
+This project has been shelved for now. The parts I had been working on last - which was several months back - have been 
+pushed so nothing is left lacking. There is a lot that I have learnt since beginning the project and to create something
+as performant as I would be happy with it would require a rewrite of the internal logic of the entire system. There is
+also a lot of better practices that should have been put in place, especially testing. I plan to revisit this in the
+future and will rewrite the entire project taking into account what I have learnt and hopefully be able to implement the
+more complex physics that ended up causing me issues in the past.
+
+---
+
 The current main goal is to simulate OPMs (Optically pumped magnetometers) and as such interactions included may well be
 limited to what is relevant to them.
 
