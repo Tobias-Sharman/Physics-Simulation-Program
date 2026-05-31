@@ -38,3 +38,26 @@ Vector<3> displacement(const Particle& particle, const Quantity& dt) {
     const auto velocity = momentum / energy * (c * c);
     return velocity * dt;
 }
+
+Vector<3> advancePolarisation(
+    const Vector<3>& polarisation,
+    const Vector<3>& magneticField,
+    const Quantity& gyromagneticRatio,
+    const Quantity& dt
+) {
+    if (!std::isfinite(dt.value) || dt.value == 0.0) {
+        return polarisation;
+    }
+
+    const auto delta = cross(polarisation, magneticField) * (gyromagneticRatio * dt);
+    return polarisation + delta;
+}
+
+void advancePolarisation(
+    Atom& atom,
+    const Vector<3>& magneticField,
+    const Quantity& gyromagneticRatio,
+    const Quantity& dt
+) {
+    atom.setPolarisation(advancePolarisation(atom.getPolarisation(), magneticField, gyromagneticRatio, dt));
+}

@@ -68,6 +68,14 @@ struct ParticleDatabase final : BaseDatabase {
             return std::nullopt;
         }
     }
+
+    [[nodiscard]] std::optional<Quantity> getGyromagneticRatio(const std::string& particle) const {
+        try {
+            return getQuantityProperty(particle, "gyromagneticRatio");
+        } catch (const std::runtime_error&) {
+            return std::nullopt;
+        }
+    }
 };
 
 // Create a reusable instance of the particle database

@@ -184,6 +184,7 @@
     "D1_wavelength": { "value": 800.0, "unit": "nm" },
     "D1_lifetime": { "value": 3e-08, "unit": "s" },
     "D2_wavelength": { "value": 780.0, "unit": "nm" },
-    "D2_lifetime": { "value": 3e-08, "unit": "s" }
+    "D2_lifetime": { "value": 3e-08, "unit": "s" },
+    "gyromagneticRatio": { "value": 2.8e6, "unit": "T^-1 s^-1" }
   }
 }

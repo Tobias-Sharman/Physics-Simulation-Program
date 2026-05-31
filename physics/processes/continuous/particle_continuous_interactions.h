@@ -16,6 +16,7 @@
 #include "core/linear-algebra/vector.h"
 #include "core/quantities/quantity.h"
 #include "particles/particle.h"
+#include "particles/particle-types/atom.h"
 
 // Displacement calculator
 //
@@ -29,5 +30,26 @@
 //
 // Example usage: TODO
 Vector<3> displacement(const Particle& particle, const Quantity& dt);
+
+// Polarisation precession
+//
+// Advance atomic polarisation over timestep dt using dP/dt = gamma * (P x B) (first-order Euler)
+//
+// Returns:
+//   - Vector<3> - Updated polarisation vector
+Vector<3> advancePolarisation(
+    const Vector<3>& polarisation,
+    const Vector<3>& magneticField,
+    const Quantity& gyromagneticRatio,
+    const Quantity& dt
+);
+
+// Convenience overload that updates an Atom in place
+void advancePolarisation(
+    Atom& atom,
+    const Vector<3>& magneticField,
+    const Quantity& gyromagneticRatio,
+    const Quantity& dt
+);
 
 #endif //PHYSICS_SIMULATION_PROGRAM_PARTICLE_CONTINUOUS_INTERACTIONS_H
